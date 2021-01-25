@@ -45,5 +45,16 @@ namespace Campaign_01
             Assert.AreEqual(19, sut.Numerator);
             Assert.AreEqual(15, sut.Denominator);
         }
+
+        [Test]
+        [TestCase("4/5", 4, 5)]
+        [TestCase("-4/7", -4, 7)]
+        [TestCase("3/-8", 3, -8)]
+        public void Parse_String(string source, int num, int denom)
+        {
+            var sut = Fraction.Parse(source);
+            Assert.AreEqual(num, sut.Numerator);
+            Assert.AreEqual(denom, sut.Denominator);
+        }
     }
 }
