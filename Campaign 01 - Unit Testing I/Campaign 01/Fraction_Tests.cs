@@ -19,7 +19,31 @@ namespace Campaign_01
         [Test]
         public void Create_Fraction_With_Zero_Denominator()
         {
-            Assert.Throws<DivideByZeroException>(() => new Fraction(3, 0));
+            Assert.Throws<DivideByZeroException>(() => new Fraction(3, 0), "Denominator in a fraction cannot be zero.");
+        }
+
+        [Test]
+        public void Multiply_Fraction()
+        {
+            var a = new Fraction(2, 3);
+            var b = new Fraction(3, 5);
+
+            var sut = a * b;
+
+            Assert.AreEqual(6, sut.Numerator);
+            Assert.AreEqual(15, sut.Denominator);
+        }
+
+        [Test]
+        public void Add_Fraction()
+        {
+            var a = new Fraction(2, 3);
+            var b = new Fraction(3, 5);
+
+            var sut = a + b;
+
+            Assert.AreEqual(19, sut.Numerator);
+            Assert.AreEqual(15, sut.Denominator);
         }
     }
 }
