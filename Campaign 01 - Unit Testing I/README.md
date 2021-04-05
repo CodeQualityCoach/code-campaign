@@ -1,4 +1,11 @@
-﻿# Your setup is
+﻿# Challenge
+
+Extend a class and test it using nunit.
+
+_Tooling:_
+* Nunit
+
+# Your setup is
 
 * Incomplete class "Fraction"
 * Red unit tests with nunit
