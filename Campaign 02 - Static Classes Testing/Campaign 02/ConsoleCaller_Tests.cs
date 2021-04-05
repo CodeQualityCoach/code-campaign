@@ -14,11 +14,24 @@ namespace Campaign_02
         public void WriteLine_Was_Called()
         {
             var consoleMock = Substitute.For<IConsole>();
-            
-            // the console caller should get an interface for wrapping to console or a mock
-            //var sut = new ConsoleCaller(consoleMock);
-            
+
+            var sut = new ConsoleCaller(consoleMock);
+            sut.DoSomething();
+
             consoleMock.Received(1).WriteLine("Hello World");
+        }
+        
+        [Test]
+        public void ReadLine_Was_Called()
+        {
+            var consoleMock = Substitute.For<IConsole>();
+            consoleMock.ReadLine().Returns("Hulk");
+
+            var sut = new ConsoleCaller(consoleMock);
+            sut.GetSomething();
+
+            consoleMock.Received(1).ReadLine();
+            consoleMock.Received(1).WriteLine("Hello Hulk");
         }
     }
 }
